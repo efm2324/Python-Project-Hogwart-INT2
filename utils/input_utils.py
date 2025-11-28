@@ -27,3 +27,13 @@ def ask_choice(message, option):
     return option[choice - 1]
 
 def load_file(file_path):
+    try :
+        with open(file_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print(f"The file was not found: {file_path}")
+    except json.JSONDecodeError as e:
+        print(f"Invalid JSON in {file_path}: {e}")
+    except Exception as e:
+        print(f"There was an error loading the file {file_path}: {e}")
+    return None
