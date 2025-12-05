@@ -1,4 +1,4 @@
-import difflib
+#import difflib
 from utils.input_utils import load_file
 
 
@@ -9,7 +9,12 @@ def init_character(last_name, first_name, attributes):
         "Money": 100,
         "Inventory": [],
         "Spells": [],
-        "Attributes": dict(attributes) if attributes is not None else {}
+        "Attributes": {
+            "Courage": 8,
+            "Ambition": 8,
+            "Loyalty": 8,
+            "Intelligence": 8
+        }
     }
     return character
 
@@ -42,9 +47,10 @@ def add_item(character, key, item):
                 else:
                     character["Inventory"].append(item)
                 return True
-            
+    """       
     names = [e.get("name", "") for e in catalog]
     suggestions = difflib.get_close_matches(item, names, n=3, cutoff=0.5)
     if suggestions:
         return f"Item not found. Did you mean: {', '.join(suggestions)}?" # Error 404
     return "Item not found. Check spelling."
+    """
