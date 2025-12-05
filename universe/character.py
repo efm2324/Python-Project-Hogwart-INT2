@@ -19,8 +19,8 @@ def display_character(character):
     print(f"First name : {character.get('first_name')}")
     print(f"Money : {character.get('money')}")
     print("Attributes :")
-    print(f"Spells : {', '.join(character.get('spells', []))}"
-    print("Attributes:"))
+    print(f"Spells : {', '.join(character.get('spells', []))}")
+    print("Attributes:")
     for attr, value in character.get("Attributes", {}).items():
         print(f" - {attr}: {value}")
         
