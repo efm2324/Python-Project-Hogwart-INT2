@@ -36,14 +36,12 @@ def add_item(character, key, item):
     # avoid duplicates
     if item in character["Inventory"] or item in character["Spells"]:
         return False
-
-    catalog = load_file("data/inventory.json")
-    if isinstance(catalog, list):
-        for entry in catalog:
-            if entry.get("name") == item:
-                if key.lower() == "spell":
-                    character["Spells"].append(item)
-                else:
-                    character["Inventory"].append(item)
-                return True
-    return "Item not found. Check spelling." #chech later for better method (difflib)
+    
+    if key == "Inventory":
+        character["Inventory"].append(item)
+        return True
+    elif key == "Spells":
+        character["Spells"].append(item)
+        return True
+    
+    return "Item not found. Check spelling."
