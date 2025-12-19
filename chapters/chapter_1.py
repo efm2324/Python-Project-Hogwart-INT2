@@ -4,8 +4,8 @@ from pathlib import Path
 # Add the parent directory to sys.path so we can import utils (doesn't work without this)
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from universe.character import init_character
-from universe.character import display_character
+from universe.character import init_character, display_character, modify_money, add_item
+from utils.input_utils import load_file, ask_choice, ask_number
 
 def introduction():
     print(".")# Placeholder for introduction text
@@ -55,4 +55,24 @@ def meet_hagrid():
             break
         else:
             print("Invalid choice. Please choose 1 or 2.")
+    
+def buy_supplies(character):
+    print("Welcome to Diagon Alley!")
+
+    catalog = load_file("data/inventory.json") 
+
+    required_items = ["Magic Wand", "Wizard Robe", "Potions Book"] 
+
+    while required_items:
+        print(f"You have {character['Money']} Galleons.")
+        print(f"Remaining required items: {', '.join(required_items)}")
         
+        choice = ask_number("Enter the number of the item to buy: ")
+        
+    print("All required items purchased! Choose your pet:")
+    pets = ["Owl", "Cat", "Rat", "Toad"]
+    pet_prices = {"Owl": 20, "Cat": 15, "Rat": 10, "Toad": 5}
+    
+    pet_choice = ask_choice("Which pet do you want?", pets)
+
+    display_character(character)
