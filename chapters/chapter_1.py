@@ -9,7 +9,11 @@ from universe.character import init_character
 from universe.character import display_character
 
 def introduction():
-    print(".")# Placeholder for introduction text
+    message = (
+        ""
+    )
+    print(message)
+    input("\nPress Enter when you are ready to continue...")
 
 def create_character():
     first_name = input("Enter your first name: ")
