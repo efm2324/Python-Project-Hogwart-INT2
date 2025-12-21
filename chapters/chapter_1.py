@@ -36,7 +36,7 @@ def receive_letter():
         print("You have declined the invitation to Hogwarts. The adventure ends here.")
         exit(0)
 
-def meet_hagrid():
+def meet_hagrid(character):
     print(
     "On your way to Diagon Alley, a giant of man with a wild beard and kind eyes approaches you. \n“Hello there! I'm Hagrid, Keeper of Keys and Grounds at Hogwarts. \nLet me help you get your school supplies!” \n"
     )
